@@ -1,0 +1,46 @@
+{
+  "name": "func",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "tunnel": "vk-tunnel --http-protocol=http --host=localhost --port=5173",
+    "predeploy": "npm run build",
+    "deploy": "vk-miniapps-deploy"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/modifiers": "^9.0.0",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@react-spring/web": "^9.7.5",
+    "@vkontakte/icons": "^2.92.0",
+    "@vkontakte/vk-bridge": "^2.13.0",
+    "@vkontakte/vk-bridge-react": "^1.0.1",
+    "@vkontakte/vk-mini-apps-router": "^1.4.2",
+    "@vkontakte/vkui": "^6.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-legacy": "^5.3.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vkontakte/vk-miniapps-deploy": "^0.1.6",
+    "@vkontakte/vk-tunnel": "^0.2.0",
+    "eruda": "^3.0.1",
+    "esbuild": "~0.20.0",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "terser": "^5.4.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  }
+}

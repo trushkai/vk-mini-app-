@@ -1,0 +1,10 @@
+/* src\panels\Loading.css */
+.LoadingContainer {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 100px);
+  justify-content: center;
+  align-items: center;
+  background: url('../assets/menu-background.svg') no-repeat center center;
+  background-size: cover;
+}

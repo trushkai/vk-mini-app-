@@ -1,0 +1,123 @@
+/* ——— базовый контейнер ——— */
+.shop-container{
+  min-height:calc(100vh - 100px);
+  background:url('../assets/shop-background.svg') center/cover no-repeat;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* ——— счётчик монет / шестерёнка ——— */
+.settings-btn-levels {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  width: 50px;
+  height: 50px;
+  background: url('/src/assets/settings.svg') no-repeat center center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.coin-counter-levels {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  width: 110px;
+  height: 45px;
+  background: url('/src/assets/coin-counter.svg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.coin-count-levels {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+/* ——— попугай ——— */
+.parrot-wrapper{
+  flex:1 0 340px;                  /* фикс-высота, чтобы полка не съезжала */
+  display:flex; justify-content:center; align-items:flex-end;
+}
+.parrot-img{
+  max-height:340px; height:100%; width:auto;
+  animation:pop-in .4s ease-out;
+}
+@keyframes pop-in{
+  0%{transform:scale(.8);opacity:0}
+  60%{transform:scale(1.05);opacity:1}
+  100%{transform:scale(1);opacity:1}
+}
+
+/* ——— горизонтальная полка со шляпами ——— */
+.hats-scroll{
+  flex:0 0 auto;
+  max-width:100%;
+  display:flex; gap:12px;
+  overflow-x:auto; overflow-y:hidden;
+  padding:12px 0 calc(env(safe-area-inset-bottom,24px) + 28px); /* ► запас снизу */
+
+  scroll-behavior:smooth;
+  scroll-snap-type:x mandatory;
+
+  /* fade-маска по краям */
+  -webkit-mask-image:linear-gradient(to right,
+                       transparent 0%, #000 8%, #000 92%, transparent 100%);
+          mask-image:linear-gradient(to right,
+                       transparent 0%, #000 8%, #000 92%, transparent 100%);
+
+  overscroll-behavior-x:contain;
+}
+
+/* колонка-карточка */
+.hat-cards{
+  scroll-snap-align:start;
+  transition:transform .25s;
+  display:flex; flex-direction:column; align-items:center;
+  min-width:110px; flex:0 0 auto;
+}
+.hats-scroll:active .hat-cards,
+.hats-scroll:focus-within .hat-cards{ transform:scale(.97); }
+
+/* сама карточка */
+.hat-card{
+  background:linear-gradient(#FFE298,#FEC56C);
+  border:3px solid #B96E29; border-radius:12px;
+  padding:8px;
+}
+.hat-img{ width:90px; height:90px; object-fit:contain }
+
+/* кнопка */
+.buy-btn{
+  margin-top:6px; width:100%; padding:4px 0;
+  background:linear-gradient(#FFE298,#FEC56C);
+  border:3px solid #B96E29; border-radius:8px;
+  color:#954B25; font-weight:bold; font-size:14px;
+  display:flex; justify-content:center; align-items:center; gap:4px;
+  cursor:pointer;
+}
+.buy-btn[disabled]{ opacity:.55; cursor:default }
+.btn-coin{ width:18px; height:18px }
+
+/* кастом-скроллбар (WebKit) */
+.hats-scroll::-webkit-scrollbar{ height:6px }
+.hats-scroll::-webkit-scrollbar-track{
+  background:rgba(0,0,0,.08); border-radius:3px;
+}
+.hats-scroll::-webkit-scrollbar-thumb{
+  background:#D4A24C; border-radius:3px;
+}
+
+/* ↓ если экран очень низкий – уменьшаем попугая */
+@media (max-height:640px){
+  .parrot-wrapper{ flex-basis:160px }
+  .parrot-img{ max-height:160px }
+}

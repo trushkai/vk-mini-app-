@@ -1,0 +1,113 @@
+/* общий фон и базовые селекторы уже есть в Game.css */
+
+/* ─────────── Level-1 (flex-верстка) ─────────── */
+
+/* ряд теней */
+.placeholders-row {
+  display: flex;
+  justify-content: center;
+  gap: clamp(8px, 2.5vw, 14px);
+  /* плавный промежуток */
+  flex-wrap: wrap;
+  /* перенос на узких экранах */
+  margin: 4vh 0 9vh;
+  /* отступы сверху/снизу */
+}
+
+/* ячейка-слот */
+.placeholder-slot {
+  flex: 0 0 clamp(70px, 22vw, 110px);
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.lvl3-placeholder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.25;
+  transition: opacity .3s ease-in-out;
+}
+
+.placeholder-slot.filled .lvl3-placeholder-img {
+  opacity: 1;
+
+}
+
+/* «полка» с предметами */
+.lvl3-items-container {
+  position: relative;
+  top: 50px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  touch-action: none;
+  gap: 0px;
+  align-items: flex-end;
+}
+
+/* draggable-контейнер */
+.dnd-item {
+  flex: 0 0 clamp(70px, 22vw, 110px);
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  touch-action: none;
+}
+
+.dnd-item:active {
+  cursor: grabbing;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* картинка, «прилипшая» к пальцу */
+.dragged-item {
+  width: clamp(60px, 20vw, 90px);
+  height: clamp(60px, 20vw, 90px);
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .35));
+  pointer-events: none;
+}
+
+.arrow-diagonally-up {
+  background: url('../../assets/arrowDiagonallyUp.svg') no-repeat center center;
+  width: 1000px;
+  height: 210px;
+  position: absolute;
+  top: 13%;
+}
+
+/* Чуть увеличиваем зазор между тенями */
+.lvl3-placeholders-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0px;
+  margin-top: 230px;
+  margin-bottom: 10px;
+  align-items: flex-end;
+}
+
+/* чтобы крупный компас не залезал за край */
+@media (max-width:360px) {
+  .placeholders-row {
+    gap: 8px;
+  }
+
+  .dnd-item,
+  .placeholder-slot {
+    max-width: 90px;
+  }
+}

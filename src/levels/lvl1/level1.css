@@ -1,0 +1,70 @@
+/* общий фон и базовые селекторы уже есть в Game.css */
+
+/* ─────────── Level-1 (flex-верстка) ─────────── */
+
+/* ряд теней */
+.lvl1-placeholders-row{
+    display:flex;
+    justify-content:center;
+    gap:clamp(8px,2.5vw,14px);   /* плавный промежуток */
+    flex-wrap:wrap;              /* перенос на узких экранах */
+    margin: 150px 0 50px;            /* отступы сверху/снизу */
+  }
+  
+  /* ячейка-слот */
+  .placeholder-slot{
+    flex:0 0 clamp(70px,22vw,110px);
+    aspect-ratio:1/1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .placeholder-img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    transition:opacity .3s ease-in-out;
+  }
+  .placeholder-slot.filled .placeholder-img{ opacity:0; }
+  
+  /* «полка» с предметами */
+  .lvl1-items-container{
+    margin:0 auto;
+    max-width:500px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:clamp(10px,3vw,18px);
+    padding-bottom:env(safe-area-inset-bottom,20px);
+  }
+  
+  /* draggable-контейнер */
+  .dnd-item{
+    flex:0 0 clamp(70px,22vw,110px);
+    aspect-ratio:1/1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:grab;
+    touch-action:none;
+  }
+  .dnd-item:active{ cursor:grabbing; }
+  
+  .item-image{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  
+  /* картинка, «прилипшая» к пальцу */
+  .dragged-item{
+    width:clamp(60px,20vw,90px);
+    height:clamp(60px,20vw,90px);
+    object-fit:contain;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.35));
+    pointer-events:none;
+  }
+  

@@ -1,0 +1,42 @@
+@import "../lvl3/level3.css";
+
+/* ——— макет теней и нижней полки ——— */
+.lvl3-placeholders-row,
+.lvl3-items-container{
+  display:flex;
+  justify-content:center;
+  gap:clamp(4px,1.5vw,12px);
+  flex-wrap:nowrap;
+  align-items:flex-end;
+  margin-top:230px;
+}
+
+/* элементы получают ширину из inline-style */
+.dnd-item,
+.placeholder-slot{
+  flex:0 0 auto;
+  aspect-ratio:1/1;
+  transition:transform .1s;
+}
+
+/* лёгкая анимация, чтобы «оживить» уровень */
+.dnd-item:hover{
+  transform:translateY(-4px) scale(1.05);
+}
+
+/* поворот бутылок */
+.item-image         { transform:rotate(-25deg); }
+.lvl3-placeholder-img{ transform:rotate(25deg); opacity:.25; }
+.placeholder-slot.filled .lvl9-placeholder-img{ opacity:1; }
+
+
+/* полка внизу чуть приподнята */
+.lvl3-items-container{ margin-top:48px; }
+
+
+/* безопасные отступы для самых узких экранов */
+@media(max-width:360px){
+  .lvl3-placeholders-row,.lvl9-items-container{
+    gap:4px;
+  }
+}

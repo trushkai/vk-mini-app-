@@ -1,0 +1,117 @@
+/* src\panels\Game.css */
+
+.game-container {
+  position: relative;
+  overflow: hidden;
+  /* убираем скролл */
+  min-height: calc(100vh - 100px);
+  background: url('../../assets/game-background.svg') center center no-repeat;
+  background-size: cover;
+  padding: 16px;
+  /* Запрет прокрутки/перемещения на мобильном во время dnd */
+  touch-action: none;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}
+
+.timer {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.baskets-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 30vh;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.basket {
+  position: relative;
+  width: 222px;
+  height: 188px;
+}
+
+.basket-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.yellow-basket {
+  margin-right: -100px;
+}
+
+.black-basket {
+  margin-bottom: -150px;
+}
+
+.items-in-basket {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  width: 80px;
+}
+
+.mini-item {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  display: none;
+}
+
+.items-container {
+  position: relative;
+  top: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  touch-action: none;
+  /* дополнительная защита */
+}
+
+.dnd-item {
+  width: 80px;
+  height: 80px;
+  cursor: grab;
+}
+
+.dnd-item:active {
+  cursor: grabbing;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dragged-item {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}

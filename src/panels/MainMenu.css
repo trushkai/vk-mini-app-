@@ -1,0 +1,88 @@
+/* src\panels\MainMenu.css */
+.MainMenu {
+  /* Фон экрана: */
+  background: url('../assets/menu-background.svg') no-repeat center center;
+  background-size: cover;
+
+  /* Чтобы занять всё пространство под шапкой */
+  min-height: calc(100vh - 100px);
+  position: relative;
+  padding: 20px; /* чтобы кнопки не прилипали к краям */
+}
+
+.coin-counter {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  width: 110px;
+  height: 45px;
+  background: url('../assets/coin-counter.svg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coin-count {
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.settings-btn {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  width: 50px;
+  height: 50px;
+  background: url('../assets/settings.svg') no-repeat center center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}
+
+.main-buttons {
+  margin-top: 420px; /* Чтобы кнопки были ниже счётчика и настроек */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.container-menu-button{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.menu-button {
+  position:relative;
+  width: 200px;
+  height: 45px;
+  font-size: 16px;
+  padding: 10px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  background-image: linear-gradient(#FFE298, #FEC56C);
+  border: 3px solid #B96E29;
+  color: #954B25;
+  font-weight: bold;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.325);
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-button:focus,
+.menu-button:hover{
+  background-image: linear-gradient(#FCF80D, #F99F1E);
+}
+
+/* маленькая красная точка поверх кнопки */
+.menu-badge{
+  position:absolute;
+  top:-4px; right:-4px;
+  width:10px; height:10px;
+  background:#FF3B30;
+  border:2px solid #FFE298;
+  border-radius:50%;
+  box-shadow:0 0 4px rgba(0,0,0,.25);
+}

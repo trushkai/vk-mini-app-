@@ -1,0 +1,79 @@
+@import "../lvl3/level3.css";
+/* за основу берём стиль 3-го */
+
+/* чуть плотнее вертикальный ряд */
+.lvl11-placeholders-row {
+  gap: clamp(35px, 1.5vw, 12px);
+  ;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-top: 130px;
+  margin-bottom: 10px;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+/* телескопы чуть повернули для живости */
+.item-image {
+  transform: rotate(-5deg);
+}
+
+.lvl11-placeholder-img {
+  width: 100%;
+  height: auto;
+  transform: rotate(5deg);
+  opacity: .25;
+}
+
+/* при наведении / касании лёгкое «подпрыгивание» */
+.dnd-item:hover {
+  transform: translateY(-3px) scale(1.04);
+}
+
+.lvl11-placeholder-slot.filled .lvl11-placeholder-img {
+  opacity: 1;
+}
+
+.lvl11-items-container {
+  position: relative;
+  top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  touch-action: none;
+  gap: 0px;
+  align-items: flex-end;
+}
+
+.arrow-left-up {
+  background: url(/src/assets/arrowLeftUp.svg) no-repeat center center;
+  width: 90px;
+  height: 240px;
+  position: absolute;
+  top: 20%;
+  left: 20px;
+}
+
+.lvl11-placeholder-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.lvl11-dnd-item,
+.lvl11-placeholder-slot {
+  width: clamp(56px, 22vw, var(--item-size, 150px));
+  height: clamp(56px, 22vw, var(--item-size, 150px));
+}
+
+.lvl11-dnd-item {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  touch-action: none;
+}

@@ -1,0 +1,196 @@
+/* src\App.css */
+body, #root {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: url('/src/assets/close.svg') no-repeat center center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.custom-modal {
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-modal-content {
+  position: relative;
+  width: 280px;
+  height: 380px;
+  background-position: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url(/src/assets/wooden-modal-menu.svg) no-repeat center center;
+}
+
+.custom-modal-content-small {
+  position: relative;
+  width: 280px;
+  height: 380px;
+  background-position: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url(/src/assets/wooden-modal-menu-small.svg) no-repeat center center;
+}
+
+.menu-button {
+  width: 80px;
+  height: 48px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  background-image: linear-gradient(#FFE298, #FEC56C);
+  border: 3px solid #B96E29;
+  color: #954B25;
+  font-weight: bold;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.325);
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 15px;
+}
+.menu-button:hover {
+  background-image: linear-gradient(#FCF80D, #F99F1E);
+}
+
+.menu-button-yes-no{
+  width: 88px;
+  height: 48px;
+  font-size: 18px;
+  padding: 10px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  background-image: linear-gradient(#FFE298, #FEC56C);
+  border: 3px solid #B96E29;
+  color: #954B25;
+  font-weight: bold;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.325);
+  transition: all 0.3s ease-in-out;
+}
+.menu-button-yes-no:hover {
+  background-image: linear-gradient(#FCF80D, #F99F1E);
+}
+
+.container-menu-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 200px;
+}
+
+.menu-button-circle-music{
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  height: 72px;
+  background: url(/src/assets/soundAndMusic.svg) no-repeat center center;
+}
+
+.menu-button-circle-notifications{
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  height: 72px;
+  background: url(/src/assets/notifications.svg) no-repeat center center;
+}
+
+.container-menu-button-circle {
+  margin-bottom: 20px;
+}
+
+.parrot {
+  background: url(/src/assets/parrot.svg) no-repeat bottom right;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+}
+
+/* наградная вспышка --------------------------------------------------*/
+.celebration-overlay{
+  position:fixed; inset:0;
+  display:flex; justify-content:center; align-items:center;
+  background:rgba(0,0,0,.25);
+  z-index:9999;                 /* поверх игры, но под vkui-попаутами */
+  animation:fadeOut 2s forwards ease-in;
+}
+
+.celebration-img{
+  width:75vw; max-width:340px;
+  animation:pop 0.4s forwards cubic-bezier(.25,1.5,.5,1);
+}
+
+@keyframes pop   { 0%{transform:scale(.3);opacity:0}
+                   70%{transform:scale(1.05);opacity:1}
+                  100%{transform:scale(1);  opacity:1} }
+
+@keyframes fadeOut{ 0%{opacity:1} 90%{opacity:1} 100%{opacity:0} }
+
+
+/* ─────────  модалка «Новое достижение»  ───────── */
+.ach-modal{
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:280px; height: 380px; padding:28px 18px;
+  background:url('/src/assets/wooden-modal-menu.svg') center/contain no-repeat;
+  text-align:center;
+  animation:scaleIn .35s cubic-bezier(.25,1.6,.5,1);
+}
+@keyframes scaleIn{ 0%{transform:scale(.4);opacity:0} 100%{transform:scale(1);opacity:1} }
+
+.ach-modal h3{
+  color:#954B25; font-size:20px; font-weight:bold; margin: 0 40px 10px;
+}
+.ach-modal p{
+  color:#954B25; font-size:16px; font-weight:400; margin:0 40px 15px;
+}
+.ach-modal-reward{
+  display:flex; justify-content:center; align-items:center; gap:6px;
+  color:#954B25; font-size:22px; font-weight:700; margin-bottom:18px;
+}
+.ach-modal-reward img{ width:32px; height:32px }
+
+.ach-menu-button {
+  position:relative;
+  width: 200px;
+  height: 45px;
+  font-size: 16px;
+  padding: 10px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  background-image: linear-gradient(#FFE298, #FEC56C);
+  border: 3px solid #B96E29;
+  color: #954B25;
+  font-weight: bold;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.325);
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 5px;
+}
+.ach-menu-button:focus,
+.ach-menu-button:hover{
+  background-image: linear-gradient(#FCF80D, #F99F1E);
+}

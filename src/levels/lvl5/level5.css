@@ -1,0 +1,10 @@
+@import "../lvl2/level2.css";   /* наследуем все базовые стили */
+
+/* Переопределяем только классы-обёртки, чтобы имена совпадали с разметкой */
+.green-basket{ margin-right:-100px; }
+.pink-basket { margin-bottom:-150px; }
+
+/* если нужно, подкрась тень предмета, когда над правильной корзиной */
+.basket[data-over="true"]{
+  filter:drop-shadow(0 0 6px #f9d95b);
+}

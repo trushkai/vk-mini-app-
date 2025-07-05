@@ -1,0 +1,31 @@
+@import "../lvl1/level1.css";
+
+.lvl7-placeholders-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(8px, 2.5vw, 14px);
+  margin: 120px 0 30px;
+}
+
+.lvl7-items-container {
+  margin: 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+  .lvl7-placeholder-slot{
+  flex: 0 0 clamp(90px, 2vw, 90px);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.lvl7-placeholder-slot.filled .placeholder-img {
+  opacity: 0;
+}
